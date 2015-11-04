@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Hangouts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Event</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hangouts.each do |hangout| %>
+      <tr>
+        <td><%= hangout.user %></td>
+        <td><%= hangout.event %></td>
+        <td><%= link_to 'Show', hangout %></td>
+        <td><%= link_to 'Edit', edit_hangout_path(hangout) %></td>
+        <td><%= link_to 'Destroy', hangout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hangout', new_hangout_path %>

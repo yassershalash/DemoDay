@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  resources :hangouts
+  resources :events
+  devise_for :users, controllers: { registrations: "registrations" }
+  devise_scope :user do
+   put "/users/update_about", to: "registrations#update_about"
+   post "/events/join/:id", to: "events#join"
+  end
   root to: 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

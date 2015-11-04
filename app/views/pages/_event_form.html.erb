@@ -1,0 +1,14 @@
+<%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.hidden_field :what %>
+    <%= f.input :when %>
+    <%= f.input :where %>
+    <%= f.input :needed %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

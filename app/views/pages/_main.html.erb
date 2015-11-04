@@ -1,0 +1,32 @@
+<div class="container-fluid" id="main" style="background-color:rgba(50,200,200,1)">
+  <div class="row">
+    <div class="col-xs-8">
+      <h1>I want to <input type="text" id="want" placeholder="Fuck Bitches" ><button id="doit" data-toggle="modal" data-target="#newEvent">Do it</button></h1>
+      <%= render 'event_modal' %>
+      <% @events.each do |e| %>
+        <div class="cardx">
+          <ul>
+            <li><%= image_tag e.user.gravatar_url %></li>
+            <li>By: <%= e.user.first + " " + e.user.last %></li>
+            <li>Where: <%= e.where %></li>
+            <li>When: <%= e.when %></li>
+            <li>Needed: <%= e.needed %></li>
+            <li>Joined: <%= e.joined %></li>
+          </ul>
+          <%= simple_form_for(@hangout) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.hidden_field :user, :value => current_user.id %>
+              <%= f.hidden_field :event,  :value => e.id %>
+            </div>
+
+            <div class="form-actions">
+              <%= f.button :submit, "Join In" %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

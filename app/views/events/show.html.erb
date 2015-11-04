@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= event.user.first + " " + event.user.last  %>
+</p>
+
+<p>
+  <strong>What:</strong>
+  <%= @event.what %>
+</p>
+
+<p>
+  <strong>When:</strong>
+  <%= @event.when %>
+</p>
+
+<p>
+  <strong>Where:</strong>
+  <%= @event.where %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @event.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @event.longitude %>
+</p>
+
+<p>
+  <strong>Needed:</strong>
+  <%= @event.needed %>
+</p>
+
+<p>
+  <strong>Joined:</strong>
+  <%= @event.joined %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

@@ -1,0 +1,24 @@
+<div class="container" id="side">
+  <div class="row">
+    <div class="col-xs-3">
+      <ul>
+        <li><%= image_tag current_user.gravatar_url %></li>
+        <li><%= current_user.first + ' ' + current_user.last %></li>
+        <li><%= current_user.email %></li>
+        <li><%= current_user.uni %></li>
+        <li><%= current_user.about %></li>
+        <%= simple_form_for(@user, url: 'users/update_about', html: { method: :put }) do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+          <%= f.input :about, required: true, autofocus: true %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Update" %>
+          </div>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

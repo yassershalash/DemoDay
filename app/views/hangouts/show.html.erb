@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @hangout.user %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @hangout.event %>
+</p>
+
+<%= link_to 'Edit', edit_hangout_path(@hangout) %> |
+<%= link_to 'Back', hangouts_path %>
