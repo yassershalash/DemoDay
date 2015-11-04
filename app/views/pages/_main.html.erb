@@ -7,11 +7,10 @@
         <div class="cardx">
           <ul>
             <li><%= image_tag e.user.gravatar_url %></li>
-            <li>By: <%= e.user.first + " " + e.user.last %></li>
+            <li><%= e.user.first + " wants to " + e.what %></li>
             <li>Where: <%= e.where %></li>
             <li>When: <%= e.when %></li>
-            <li>Needed: <%= e.needed %></li>
-            <li>Joined: <%= e.joined %></li>
+            <li>Joined: <%= e.joined %> / <%= e.needed %></li>
           </ul>
           <%= simple_form_for(@hangout) do |f| %>
             <%= f.error_notification %>

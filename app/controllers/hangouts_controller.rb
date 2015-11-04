@@ -29,7 +29,7 @@ class HangoutsController < ApplicationController
     @hangout = Hangout.new(user: @user, event: @event)
 
     respond_to do |format|
-      if params[:hangout][:user] == @event.user_id || !Hangout.where(event: @event, user: @user).first.nil?
+      if params[:hangout][:user] == @event.user_id && !Hangout.where(event: @event, user: @user).first.nil?
         format.html { redirect_to root_path, notice: 'You\'re already joined' }
       elsif @event.joined == @event.needed
         format.html { redirect_to root_path, notice: 'Event is full' }
